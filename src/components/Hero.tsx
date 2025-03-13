@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   return (
     <div className="relative overflow-hidden bg-background pt-16 md:pt-20 lg:pt-32">
       <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-blue-500 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
+        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-red-400 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
       </div>
       
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
