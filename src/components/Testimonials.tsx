@@ -1,7 +1,8 @@
 
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Star, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
