@@ -1,15 +1,17 @@
 
-import React from "react";
+import React, { useState } from "react";
 import MainLayout from "../components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Lock, ArrowRight, Shield } from "lucide-react";
+import { Lock, ArrowRight, Shield, AlertCircle } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "@/components/ui/use-toast";
+import { signIn } from "@/lib/firebase";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -20,6 +22,8 @@ type FormValues = z.infer<typeof formSchema>;
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
+  const [authError, setAuthError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -29,18 +33,29 @@ const SignIn: React.FC = () => {
     },
   });
 
-  function onSubmit(values: FormValues) {
-    console.log(values);
-    // In a real application, you would authenticate with backend
+  async function onSubmit(values: FormValues) {
+    setIsLoading(true);
+    setAuthError(null);
+    
+    const { user, error } = await signIn(values.email, values.password);
+    
+    if (error) {
+      setAuthError(error);
+      setIsLoading(false);
+      return;
+    }
+    
     toast({
       title: "Login successful!",
       description: "Redirecting to your dashboard...",
     });
     
-    // Simulate redirect after login
+    // Navigate to dashboard after successful login
     setTimeout(() => {
       navigate("/dashboard");
     }, 1500);
+    
+    setIsLoading(false);
   }
 
   return (
@@ -71,6 +86,13 @@ const SignIn: React.FC = () => {
           
           <div className="cyber-box rounded-sm bg-black/50 backdrop-blur-sm p-[1px]">
             <div className="bg-background/30 backdrop-blur-sm p-8 rounded-sm">
+              {authError && (
+                <Alert variant="destructive" className="mb-6">
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertDescription>{authError}</AlertDescription>
+                </Alert>
+              )}
+              
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField
@@ -110,9 +132,10 @@ const SignIn: React.FC = () => {
                   <Button 
                     type="submit" 
                     className="w-full group relative overflow-hidden transition-all duration-300"
+                    disabled={isLoading}
                   >
                     <span className="flex items-center justify-center gap-2">
-                      Sign In
+                      {isLoading ? "Signing in..." : "Sign In"}
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                     <span className="absolute inset-y-0 right-0 w-5 bg-primary/20 transition-all group-hover:w-full -z-10"></span>
