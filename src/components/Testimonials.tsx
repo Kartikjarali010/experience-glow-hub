@@ -1,8 +1,9 @@
 
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, ArrowRight } from "lucide-react";
+import { Star, ArrowRight, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const testimonials = [
   {
@@ -80,15 +81,16 @@ const Testimonials: React.FC = () => {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button asChild size="lg" className="rounded-sm border border-primary/20 group relative overflow-hidden">
-              <a href="#signup" className="flex items-center gap-2 px-6">
+              <Link to="/signup" className="flex items-center gap-2 px-6">
                 <span>Start</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </Button>
             <Button variant="outline" asChild size="lg" className="rounded-sm border-primary/50 hover:border-primary/80 px-6">
-              <a href="#demo" className="flex items-center gap-2">
-                <span>Book a Demo</span>
-              </a>
+              <Link to="/take-exam" className="flex items-center gap-2">
+                <Shield className="h-4 w-4" />
+                <span>Take Exam</span>
+              </Link>
             </Button>
           </div>
         </div>
