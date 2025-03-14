@@ -3,7 +3,7 @@ import React from "react";
 import MainLayout from "../components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Lock, ArrowRight } from "lucide-react";
+import { Lock, ArrowRight, Shield } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
