@@ -33,7 +33,7 @@ const SignupForm: React.FC = () => {
     console.log(values);
     // In a real application, you would submit this data to your backend
     toast({
-      title: "Free trial activation initiated!",
+      title: "Setup initiated!",
       description: "Check your email to complete the setup process.",
     });
     form.reset();
@@ -51,7 +51,7 @@ const SignupForm: React.FC = () => {
       
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-primary font-mono">&gt; FREE TRIAL</h2>
+          <h2 className="text-base font-semibold leading-7 text-primary font-mono">&gt; START NOW</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl hacker-text text-glitch">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/90 to-red-500/80">
               Start securing your exams today
@@ -133,7 +133,7 @@ const SignupForm: React.FC = () => {
                     className="w-full group relative overflow-hidden transition-all duration-300"
                   >
                     <span className="flex items-center justify-center gap-2">
-                      Start Your Free Trial
+                      Start
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                     <span className="absolute inset-y-0 right-0 w-5 bg-primary/20 transition-all group-hover:w-full -z-10"></span>

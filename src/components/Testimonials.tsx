@@ -76,12 +76,12 @@ const Testimonials: React.FC = () => {
         <div className="mt-16 flex flex-col items-center justify-center text-center cyber-box bg-black/50 backdrop-blur-lg p-8 rounded-sm border border-primary/40 animate-in fade-in duration-700">
           <h3 className="text-2xl font-bold tracking-tight text-foreground mb-4 hacker-text text-glitch">Ready to secure your exams?</h3>
           <p className="text-foreground/80 mb-6 max-w-2xl font-mono">
-            Join thousands of educators who trust GlowHub for fair and secure exams. Start your free trial today.
+            Join thousands of educators who trust GlowHub for fair and secure exams. Start today.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button asChild size="lg" className="rounded-sm border border-primary/20 group relative overflow-hidden">
               <a href="#signup" className="flex items-center gap-2 px-6">
-                <span>Start Free Trial</span>
+                <span>Start</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
