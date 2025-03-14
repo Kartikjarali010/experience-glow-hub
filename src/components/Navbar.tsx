@@ -33,8 +33,11 @@ const Navbar: React.FC = () => {
               <a href="#testimonials" className="text-foreground/70 hover:text-primary px-3 py-2 rounded-sm text-sm font-mono transition-colors border-b border-transparent hover:border-primary/30">
                 &gt;_Testimonials
               </a>
-              <Button asChild size="sm" className="ml-4 rounded-sm border border-primary/20 bg-background hover:bg-primary/10 text-primary">
-                <a href="#signup">&gt; Join Beta</a>
+              <Button asChild size="sm" className="rounded-sm border border-primary/20 bg-background hover:bg-primary/10 text-primary">
+                <a href="#demo">&gt; Book a Demo</a>
+              </Button>
+              <Button asChild size="sm" className="ml-2 rounded-sm bg-primary hover:bg-primary/90 text-primary-foreground">
+                <a href="#signup">&gt; Free Trial</a>
               </Button>
             </div>
           </div>
@@ -65,7 +68,10 @@ const Navbar: React.FC = () => {
               &gt;_Testimonials
             </a>
             <Button asChild size="sm" className="mt-4 w-full rounded-sm border border-primary/20 bg-background hover:bg-primary/10 text-primary">
-              <a href="#signup" onClick={toggleMenu}>&gt; Join Beta</a>
+              <a href="#demo" onClick={toggleMenu}>&gt; Book a Demo</a>
+            </Button>
+            <Button asChild size="sm" className="mt-2 w-full rounded-sm bg-primary hover:bg-primary/90 text-primary-foreground">
+              <a href="#signup" onClick={toggleMenu}>&gt; Free Trial</a>
             </Button>
           </div>
         </div>
