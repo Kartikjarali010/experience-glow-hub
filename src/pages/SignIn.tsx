@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import MainLayout from "../components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
@@ -10,7 +9,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "@/components/ui/use-toast";
-import { signIn } from "@/lib/firebase";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const formSchema = z.object({
@@ -37,25 +35,23 @@ const SignIn: React.FC = () => {
     setIsLoading(true);
     setAuthError(null);
     
-    const { user, error } = await signIn(values.email, values.password);
+    // Simulate sign-in process
+    console.log("Sign in attempted with:", values);
     
-    if (error) {
-      setAuthError(error);
-      setIsLoading(false);
-      return;
-    }
-    
-    toast({
-      title: "Login successful!",
-      description: "Redirecting to your dashboard...",
-    });
-    
-    // Navigate to dashboard after successful login
+    // Mock successful authentication
     setTimeout(() => {
-      navigate("/dashboard");
-    }, 1500);
-    
-    setIsLoading(false);
+      toast({
+        title: "Login successful!",
+        description: "Redirecting to your dashboard...",
+      });
+      
+      // Navigate to dashboard after simulated login
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1500);
+      
+      setIsLoading(false);
+    }, 1000);
   }
 
   return (

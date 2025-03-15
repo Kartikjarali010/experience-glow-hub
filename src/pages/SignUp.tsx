@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import MainLayout from "../components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
@@ -10,7 +9,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "@/components/ui/use-toast";
-import { signUp } from "@/lib/firebase";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const formSchema = z.object({
@@ -46,33 +44,27 @@ const SignUp: React.FC = () => {
     setIsLoading(true);
     setAuthError(null);
     
-    const { user, error } = await signUp(values.email, values.password);
-    
-    if (error) {
-      setAuthError(error);
-      setIsLoading(false);
-      return;
-    }
-    
-    toast({
-      title: "Account created!",
-      description: "Redirecting to your dashboard...",
-    });
-    
-    // In a real application, you would store additional user data in a database
-    console.log("Additional user data to store:", {
-      name: values.name,
-      institution: values.institution,
+    // Simulate sign-up process
+    console.log("Sign up attempted with:", { 
+      name: values.name, 
       email: values.email,
-      uid: user?.uid
+      institution: values.institution
     });
     
-    // Navigate to dashboard after successful registration
+    // Mock successful account creation
     setTimeout(() => {
-      navigate("/dashboard");
-    }, 1500);
-    
-    setIsLoading(false);
+      toast({
+        title: "Account created!",
+        description: "Redirecting to your dashboard...",
+      });
+      
+      // Navigate to dashboard after simulated registration
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1500);
+      
+      setIsLoading(false);
+    }, 1000);
   }
 
   return (
